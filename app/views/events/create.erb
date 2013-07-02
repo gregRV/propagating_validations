@@ -1,0 +1,41 @@
+<h1>New Event</h1>
+
+<form action='/events/create' method='post'>
+	<label name="date">Date:<label>
+	<input type="date" name="event[date]" value="<%= @event.date %>">
+	<% @event.errors.each do |attr, message| %>
+		<% if attr == :date %>
+			<div class="errors"><%= message %></div>
+		<% end %>
+	<% end %>
+	<br>
+
+	<label name="organizer_name">Organizer Name:</label>
+	<input type="text" name="event[organizer_name]" value="<%= @event.organizer_name %>">
+	<% @event.errors.each do |attr, message| %>
+		<% if attr == :organizer_name %>
+			<div class="errors"><%= message %></div>
+		<% end %>
+	<% end %>
+	<br>
+
+	<label name="organizer_email">Organizer Email:</label>
+	<input type="text" name="event[organizer_email]" value="<%= @event.organizer_email %>">
+	<% @event.errors.each do |attr, message| %>
+		<% if attr == :organizer_email %>
+			<div class="errors"><%= message %></div>
+		<% end %>
+	<% end %>
+	<br>
+
+	<label name="title">Title:</label>
+	<input type="text" name="event[title]" value="<%= @event.title %>">
+	<% @event.errors.each do |attr, message| %>
+		<% if attr == :title %>
+			<div class="errors"><%= message %></div>
+		<% end %>
+	<% end %>
+	<br>
+
+	<input type="submit">
+</form>
